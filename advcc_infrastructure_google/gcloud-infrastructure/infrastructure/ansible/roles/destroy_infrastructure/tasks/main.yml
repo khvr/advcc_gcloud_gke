@@ -1,0 +1,11 @@
+---
+- name: Destroy terraform infrastructure
+  community.general.terraform:
+    project_path: '{{ project_dir }}'
+    state: absent
+    force_init: true
+  register: result
+  # until: result.stderr == ""
+
+- name: Clear config file 
+  command: rm ~/.kube/config

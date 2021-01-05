@@ -1,0 +1,18 @@
+---
+- name: Basic deploy of a service
+  community.general.terraform:
+    project_path: '{{ project_dir }}'
+    state: present
+    force_init: true
+  register: result
+  # until: result.stderr == ""
+
+- name: print all returned values
+  debug:
+    msg: "{{ result }}"
+
+- name: Download cluster config 
+  command: "gcloud container clusters get-credentials {{ cluster_name }} --region {{ region }} --project {{ google_project_name }}"
+
+- name: Get all nodes
+  command: "kubectl get nodes"

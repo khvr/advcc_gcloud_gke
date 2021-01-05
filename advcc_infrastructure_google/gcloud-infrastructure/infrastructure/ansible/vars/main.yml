@@ -1,0 +1,9 @@
+---
+cluster_name: "{{ clustername }}"
+region: "{{region}}"
+webapp_domain: "{{ webapp_domain }}"
+dns_zone: "{{ dns_zone }}"
+project_dir: "{{ terraform_project }}"
+credentials_path: "{{ credentials_path }}"
+google_project_name: "{{ google_project_name }}"
+service_account_email: "{{ service_account_email }}"

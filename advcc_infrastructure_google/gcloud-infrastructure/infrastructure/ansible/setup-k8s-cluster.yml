@@ -1,0 +1,12 @@
+---
+- name: Run on Local
+  hosts: localhost
+  connection: local
+  become: false
+  gather_facts: false
+  vars_files:
+    - vars/main.yml
+
+  roles:
+    - role: setup_infrastructure
+    - role: setup-prereq-cluster
